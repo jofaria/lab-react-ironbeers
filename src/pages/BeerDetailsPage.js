@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
+import Header from '../components/Header';
 
 const apiURL = 'https://ih-beers-api2.herokuapp.com/beers';
 

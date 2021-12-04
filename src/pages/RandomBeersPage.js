@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import Header from '../components/Header';
 
 const apiURL = 'https://ih-beers-api2.herokuapp.com/beers';
 
@@ -26,6 +27,7 @@ function RandomBeersPage() {
 
   return (
     <div>
+      <Header />
       {loading && (
         <img
           src="https://c.tenor.com/tEBoZu1ISJ8AAAAC/spinning-loading.gif"

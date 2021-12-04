@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from '../components/Header';
 
 const apiURL = 'https://ih-beers-api2.herokuapp.com/beers';
 
@@ -59,6 +60,7 @@ function AddBeerPage() {
 
   return (
     <div>
+      <Header />
       <h1>Add Beer Page</h1>
 
       <form onSubmit={handleSubmit}>
