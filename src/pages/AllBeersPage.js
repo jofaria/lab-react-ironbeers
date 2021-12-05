@@ -44,10 +44,15 @@ function AllBeersPage() {
   };
 
   return (
-    <div>
+    <div
+      className="d-inline-flex flex-column justify-content-center"
+      style={{ maxWidth: '700px' }}
+    >
       <Header />
 
-      <h1>All Beers Page</h1>
+      <h1 style={{ margin: '20px 0 20px 0' }}>
+        Ironhack's Premium Beer Selection
+      </h1>
 
       {loading && (
         <img
@@ -60,17 +65,20 @@ function AllBeersPage() {
 
       {updatedBeers.map((eachBeer) => {
         return (
-          <Link to={'/beers/' + eachBeer._id} className="link">
-            <Card style={{ width: '18rem' }}>
+          <Link
+            to={'/beers/' + eachBeer._id}
+            className="link"
+            key={eachBeer._id}
+            style={{ width: '100%', margin: '20px' }}
+          >
+            <Card style={{ margin: '20px' }}>
               <Card.Body>
-                <div key={eachBeer._id}>
-                  <img src={eachBeer.image_url} alt="beer" height="200" />
-                  <Card.Title>{eachBeer.name}</Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">
-                    {eachBeer.tagline}
-                  </Card.Subtitle>
-                  <Card.Text>Created by:{eachBeer.contributed_by}</Card.Text>
-                </div>
+                <img src={eachBeer.image_url} alt="beer" height="100px" />
+                <Card.Title>{eachBeer.name}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">
+                  {eachBeer.tagline}
+                </Card.Subtitle>
+                <Card.Text>Created by:{eachBeer.contributed_by}</Card.Text>
               </Card.Body>
             </Card>
           </Link>

@@ -26,7 +26,10 @@ function RandomBeersPage() {
   }, []);
 
   return (
-    <div>
+    <div
+      className="d-inline-flex flex-column justify-content-center align-items-center"
+      style={{ maxWidth: '700px' }}
+    >
       <Header />
       {loading && (
         <img
@@ -34,8 +37,8 @@ function RandomBeersPage() {
           alt="loading"
         />
       )}
-      <h2>You Win a Random Beer! </h2>
-      <img src={randomBeer.image_url} alt="beer" height="200" />
+      <h2>Here's Your Random Beer! </h2>
+      <img src={randomBeer.image_url} alt="beer" height="20%" width="20%" />
       <h2>{randomBeer.name}</h2>
       <p>{randomBeer.tagline}</p>
       <p>{randomBeer.first_brewed}</p>

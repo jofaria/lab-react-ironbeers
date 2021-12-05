@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 
 const apiURL = 'https://ih-beers-api2.herokuapp.com/beers';
@@ -20,7 +20,6 @@ function BeerDetailsPage() {
       try {
         const response = await axios.get(`${apiURL}/${beerId}`);
         const requestedBeerData = response.data;
-
         console.log(requestedBeerData);
         setRequestedBeer(requestedBeerData);
         setLoading(false);
@@ -37,7 +36,10 @@ function BeerDetailsPage() {
   }, []);
 
   return (
-    <div>
+    <div
+      className="d-inline-flex flex-column justify-content-center align-items-center"
+      style={{ maxWidth: '700px' }}
+    >
       <Header />
       {loading && (
         <img
@@ -46,7 +48,7 @@ function BeerDetailsPage() {
         />
       )}
       <h2>Beer Details Page</h2>
-      <img src={requestedBeer.image_url} alt="beer" height="200" />
+      <img src={requestedBeer.image_url} alt="beer" height="20%" width="20%" />
       <h3>{requestedBeer.name}</h3>
       <p>{requestedBeer.tagline}</p>
       <p>Attenuation level: {requestedBeer.attenuation_level}</p>

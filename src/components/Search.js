@@ -10,9 +10,8 @@ function Search({ handleSearchObj }) {
   };
 
   return (
-    <div>
+    <div className="d-flex justify-content-center">
       <label>Search for a beer: </label>
-
       <input
         value={char}
         type="text"
