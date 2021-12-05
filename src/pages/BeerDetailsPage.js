@@ -38,6 +38,7 @@ function BeerDetailsPage() {
 
   return (
     <div>
+      <Header />
       {loading && (
         <img
           src="https://c.tenor.com/tEBoZu1ISJ8AAAAC/spinning-loading.gif"

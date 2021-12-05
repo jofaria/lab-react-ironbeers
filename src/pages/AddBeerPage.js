@@ -42,8 +42,6 @@ function AddBeerPage() {
 
       await axios.post(`${apiURL}/new`, newBeer);
 
-      console.log('This is the new beer on handleSumbmit:', newBeer);
-
       setName('');
       setTagline('');
       setDescription('');

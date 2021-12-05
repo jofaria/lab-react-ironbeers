@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from './../components/Header';
 import Search from './../components/Search';
+import { Card } from 'react-bootstrap';
 
 const apiURL = 'https://ih-beers-api2.herokuapp.com/beers';
 
@@ -17,8 +18,6 @@ function AllBeersPage() {
       try {
         const response = await axios.get(apiURL);
         const allBeersData = response.data;
-
-        console.log('inside fetchData: allBeersData', allBeersData);
 
         setAllBeers(allBeersData);
         setUpdatedBeers(allBeersData);
@@ -61,13 +60,19 @@ function AllBeersPage() {
 
       {updatedBeers.map((eachBeer) => {
         return (
-          <Link to={'/beers/' + eachBeer._id}>
-            <div key={eachBeer._id}>
-              <img src={eachBeer.image_url} alt="beer" height="200" />
-              <h3>{eachBeer.name}</h3>
-              <h4>{eachBeer.tagline}</h4>
-              <p>Created by:{eachBeer.contributed_by}</p>
-            </div>
+          <Link to={'/beers/' + eachBeer._id} className="link">
+            <Card style={{ width: '18rem' }}>
+              <Card.Body>
+                <div key={eachBeer._id}>
+                  <img src={eachBeer.image_url} alt="beer" height="200" />
+                  <Card.Title>{eachBeer.name}</Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted">
+                    {eachBeer.tagline}
+                  </Card.Subtitle>
+                  <Card.Text>Created by:{eachBeer.contributed_by}</Card.Text>
+                </div>
+              </Card.Body>
+            </Card>
           </Link>
         );
       })}

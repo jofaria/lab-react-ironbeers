@@ -17,7 +17,7 @@ function Search({ handleSearchObj }) {
         value={char}
         type="text"
         onChange={getChars}
-        placeholder="Search by title, creator..."
+        placeholder="Search by title"
       />
     </div>
   );
